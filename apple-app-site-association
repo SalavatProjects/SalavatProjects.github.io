@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.your.bundle.id",
+        "paths": [ "/profile/*", "/" ]
+      }
+    ]
+  }
+}
