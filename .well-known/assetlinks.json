@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "your.package.name",
+      "package_name": "com.example.red_powerbank_test_app",
       "sha256_cert_fingerprints": [
-        "AA:BB:CC:DD:...:ZZ"
+        "0C:6C:F3:3D:8D:6A:56:17:AD:D5:0F:DC:E0:CB:76:E5:25:B1:62:DB:7F:6F:BC:97:3E:33:81:48:41:3B:BD:5F"
       ]
     }
   }
