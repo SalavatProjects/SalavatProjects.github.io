@@ -26564,7 +26564,7 @@ return A.F($async$au3,r)},
 a10(a,b,c,d){var s=0,r=A.G(t.H),q,p,o
 var $async$a10=A.H(function(e,f){if(e===1)return A.D(f,r)
 while(true)switch(s){case 0:o=window.bt
-if(o==null)throw A.c(A.A("window.bt not found \u2014 \u043f\u0440\u043e\u0432\u0435\u0440\u044c web/braintree.js \u0438 index.html"))
+if(o==null)throw A.c(A.A("window.bt not found"))
 q=t.N
 p=A.m(q,t.a)
 p.m(0,"applePay",A.ab(["displayName","Your Shop","totalLabel","Total","amount",a],q,q))
@@ -26575,15 +26575,16 @@ s=2
 return A.L(A.fm(o.initDropin("dropin-container",b,p),t.z),$async$a10)
 case 2:return A.E(null,r)}})
 return A.F($async$a10,r)},
-a11(){var s=0,r=A.G(t.a),q,p,o
+a11(){var s=0,r=A.G(t.a),q,p,o,n
 var $async$a11=A.H(function(a,b){if(a===1)return A.D(b,r)
-while(true)switch(s){case 0:p=t.z
+while(true)switch(s){case 0:p=window.bt
+o=t.z
 s=3
-return A.L(A.fm(window.bt.requestPaymentMethod(),p),$async$a11)
-case 3:o=b
-if(o==null)throw A.c(A.A("requestPaymentMethod \u0432\u0435\u0440\u043d\u0443\u043b null"))
-if(!t.f.b(o))throw A.c(A.A("\u041e\u0436\u0438\u0434\u0430\u043b\u0441\u044f Map, \u0430 \u043f\u0440\u0438\u0448\u0451\u043b "+J.T(o).j(0)))
-q=A.Ar(o,t.N,p)
+return A.L(A.fm(p.requestPaymentMethod(A.m(o,o)),o),$async$a11)
+case 3:n=b
+if(n==null)throw A.c(A.A("requestPaymentMethod returned null"))
+if(!t.f.b(n))throw A.c(A.A("requestPaymentMethod returned non-Map result"))
+q=A.Ar(n,t.N,o)
 s=1
 break
 case 1:return A.E(q,r)}})
