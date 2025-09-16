@@ -52,7 +52,7 @@
           g.bt._canRequest = instance.isPaymentMethodRequestable();
           instance.on('paymentMethodRequestable', function () { 
             g.bt._canRequest = true; 
-            console.log('Braintree Drop-in payment method requestable'  
+            console.log('Braintree Drop-in payment method requestable');
           });
           instance.on(
             'noPaymentMethodRequestable', function () {
@@ -79,7 +79,7 @@
       }).catch(function (err) {
         console.error('Braintree Drop-in requestPaymentMethod error', err);
         return Promise.reject(err);
-      });
+      }
     },
 
 
