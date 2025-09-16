@@ -7,11 +7,13 @@
 
 
     initDropin: function (containerId, clientToken, options) {
+      console.log('Braintree Drop-in init');
       if (!clientToken) return Promise.reject(new Error('clientToken is required'));
       const container = document.getElementById(containerId || 'dropin-container');
       if (!container) return Promise.reject(new Error('container not found'));
 
       if (g.bt._instance) {
+        console.log('Braintree Drop-in already initialized, tearing down');
         return g.bt.teardown();
       }
 
@@ -42,11 +44,24 @@
         Object.assign(createOpts, options.extraOptions);
       }
 
+      console.log('Braintree Drop-in create options:', createOpts);
+
       return braintree.dropin.create(createOpts).then(function (instance) {
+          console.log('Braintree Drop-in created');
         g.bt._instance = instance;
           g.bt._canRequest = instance.isPaymentMethodRequestable();
-          instance.on('paymentMethodRequestable', function () { g.bt._canRequest = true; });
-          instance.on('noPaymentMethodRequestable', function () { g.bt._canRequest = false; });
+          instance.on('paymentMethodRequestable', function () { 
+            g.bt._canRequest = true; 
+            console.log('Braintree Drop-in payment method requestable'  
+          });
+          instance.on(
+            'noPaymentMethodRequestable', function () {
+               g.bt._canRequest = false; 
+               console.log('Braintree Drop-in no payment method requestable');
+              })  ;
+      }).catch(function (err) {
+        console.error('Braintree Drop-in create error', err);
+        return Promise.reject(err);
       });
     },
 
@@ -61,6 +76,9 @@
           details: payload.details || null
 
         };
+      }).catch(function (err) {
+        console.error('Braintree Drop-in requestPaymentMethod error', err);
+        return Promise.reject(err);
       });
     },
 
