@@ -79,7 +79,7 @@
       }).catch(function (err) {
         console.error('Braintree Drop-in requestPaymentMethod error', err);
         return Promise.reject(err);
-      }
+      });
     },
 
 
